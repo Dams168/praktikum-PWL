@@ -12,13 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->foreign('id')->references('id')->on('books')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            $table->id();
+            // $table->foreign('id')->references('id')->on('books')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
             $table->string('category', 255);
-
-            $table->primary('id');
+            // $table->primary('id');
         });
     }
 
