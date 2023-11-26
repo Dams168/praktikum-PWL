@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('cover', 255);
 
             $table->unsignedBigInteger('bookshelf_id');
-            $table->foreign('bookshelf_id')->references('id')->on('bookshelfs')
+            $table->foreign('bookshelf_id')->references('id')->on('bookshelves')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
