@@ -60,10 +60,10 @@ class GeneralSeeder extends Seeder
 
         $admin->assignRole('admin');
 
-        $role_admin->givePermissionTo('read');
-        $role_admin->givePermissionTo('update');
-        $role_admin->givePermissionTo('delete');
-        $role_admin->givePermissionTo('create');
-        $role_anggota->givePermissionTo('read');
+        // $role_admin->givePermissionTo('read');
+        // $role_admin->givePermissionTo('update');
+        // $role_admin->givePermissionTo('delete');
+        // $role_admin->givePermissionTo('create');
+        // $role_anggota->givePermissionTo('read');
     }
 }
