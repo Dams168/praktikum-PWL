@@ -20,6 +20,7 @@ class BookSeeder extends Seeder
             'publisher' => 'Penerbit 1',
             'city' => 'Cianjur',
             'cover' => 'buku1.com',
+            'quantity' => 5,
             'bookshelf_id' => 1,
             'created_at' => now(),
         ]);
@@ -30,6 +31,7 @@ class BookSeeder extends Seeder
             'publisher' => 'Penerbit 2',
             'city' => 'Bandung',
             'cover' => 'buku2.com',
+            'quantity' => 3,
             'bookshelf_id' => 2,
             'created_at' => now(),
         ]);
