@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Bookshelf;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -111,5 +112,12 @@ class BookController extends Controller
         );
 
         return redirect()->route('book')->with($notification);
+    }
+
+    public function print()
+    {
+        $data['books'] = Book::all();
+        $pdf = Pdf::loadView('books.print', $data);
+        return $pdf->stream('books.pdf');
     }
 }
