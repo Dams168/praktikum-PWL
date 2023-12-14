@@ -29,10 +29,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/role', function () {
-        return view('welcome');
-    })->middleware(['role:anggota']);
+    Route::view('/roles', 'role')->name('role')->middleware(['role:pustakawan']);
 });
-
-
 require __DIR__.'/auth.php';

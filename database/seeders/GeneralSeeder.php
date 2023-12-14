@@ -15,7 +15,7 @@ class GeneralSeeder extends Seeder
      */
     public function run(): void
     {
-        $role_admin = Role::create([
+        $role_pustakawan = Role::create([
             'name' => 'admin'
         ]);
 
@@ -23,18 +23,24 @@ class GeneralSeeder extends Seeder
             'name' => 'anggota'
         ]);
 
-        $permission = Permission::create([
-            'name' => 'create'
+        Permission::create([
+            'name' => 'create_book'
         ]);
-        $permission = Permission::create([
+        Permission::create([
             'name' => 'update'
         ]);
-        $permission = Permission::create([
+        Permission::create([
             'name' => 'read'
         ]);
-        $permission = Permission::create([
+        Permission::create([
             'name' => 'delete'
         ]);
+
+        $role_pustakawan->givePermissionTo('read');
+        $role_pustakawan->givePermissionTo('update');
+        $role_pustakawan->givePermissionTo('delete');
+        $role_pustakawan->givePermissionTo('create');
+        $role_anggota->givePermissionTo('read');
 
         $anggota = User::create([
             'username' => 'Anggota 1',
@@ -49,21 +55,15 @@ class GeneralSeeder extends Seeder
 
 
         $admin = User::create([
-            'username' => 'Admin',
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
+            'username' => 'Pustakawan',
+            'name' => 'Pustakawan',
+            'email' => 'pustakawan@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        $admin->assignRole('admin');
-
-        // $role_admin->givePermissionTo('read');
-        // $role_admin->givePermissionTo('update');
-        // $role_admin->givePermissionTo('delete');
-        // $role_admin->givePermissionTo('create');
-        // $role_anggota->givePermissionTo('read');
+        $admin->assignRole('pustakawan');
     }
 }
