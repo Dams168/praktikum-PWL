@@ -24,4 +24,21 @@ class Book extends Model
     public function bookshelf(): BelongsTo{
         return $this->belongsTo(Bookshelf::class);
     }
+
+    public static function export()
+    {
+        $books = Book::all();
+        $books_filter = [];
+
+        $no = 1;
+        for ($i = 0; $i < $books->count(); $i++) {
+            $books_filter[$i]['no'] = $no++;
+            $books_filter[$i]['title'] = $books[$i]->title;
+            $books_filter[$i]['author'] = $books[$i]->author;
+            $books_filter[$i]['year'] = $books[$i]->year;
+            $books_filter[$i]['publisher'] = $books[$i]->publisher;
+        }
+
+        return $books_filter;
+    }
 }
